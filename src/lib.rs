@@ -3,13 +3,23 @@ use reqwest::Client as AsyncClient;
 
 use serde_json::json;
 use std::error::Error;
+/// A client for interacting with the Pushinator API.
 
 pub struct PushinatorClient {
+    /// API token used for authentication.
     api_token: String,
+    /// Base URL of the Pushinator API.
     base_url: String,
 }
 
 impl PushinatorClient {
+    /// Creates a new `PushinatorClient` instance with the default API base URL.
+    ///
+    /// # Arguments
+    /// * `api_token` - A string containing the API token for authentication.
+    ///
+    /// # Returns
+    /// A new instance of `PushinatorClient`.
     pub fn new(api_token: String) -> Self {
         PushinatorClient {
             api_token: api_token.to_string(),
@@ -17,6 +27,14 @@ impl PushinatorClient {
         }
     }
 
+    /// Creates a new `PushinatorClient` instance with a custom base URL, typically for testing purposes.
+    ///
+    /// # Arguments
+    /// * `api_token` - A string containing the API token for authentication.
+    /// * `mock_url` - A string containing the mock URL for the API.
+    ///
+    /// # Returns
+    /// A new instance of `PushinatorClient`.
     pub fn new_test(api_token: String, mock_url: String) -> Self {
         PushinatorClient {
             api_token: api_token.to_string(),
@@ -24,6 +42,15 @@ impl PushinatorClient {
         }
     }
 
+    /// Sends a notification to a specific channel synchronously.
+    ///
+    /// # Arguments
+    /// * `channel_id` - ID of the channel to send the notification to.
+    /// * `notification` - notification message.
+    ///
+    /// # Returns
+    /// * `Ok(())` if the notification was sent successfully.
+    /// * `Err` containing an error if the operation failed.
     pub fn send_notification_sync(
         &self,
         channel_id: String,
@@ -56,6 +83,15 @@ impl PushinatorClient {
         }
     }
 
+        /// Sends a notification to a specific channel asynchronously.
+    ///
+    /// # Arguments
+    /// * `channel_id` - ID of the channel to send the notification to.
+    /// * `notification` - notification message.
+    ///
+    /// # Returns
+    /// * `Ok(())` if the notification was sent successfully.
+    /// * `Err` containing an error if the operation failed.
     pub async fn send_notification(
         &self,
         channel_id: String,
