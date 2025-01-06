@@ -2,7 +2,7 @@
 name = "pushinator"
 version = "0.1.0"
 edition = "2021"
-description = "A short description of my package"
+description = "🔔 🦀 A Rust crate for sending push notifications to your devices"
 homepage = "https://pushinator.com"
 repository = "https://github.com/appricos/pushinator-rust"
 readme = "README.md"
