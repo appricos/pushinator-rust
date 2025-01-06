@@ -7,6 +7,8 @@ homepage = "https://pushinator.com"
 repository = "https://github.com/appricos/pushinator-rust"
 readme = "README.md"
 exclude = ["tests/*", ".github/*"]
+authors = ["appricos"]
+license = "MIT"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
