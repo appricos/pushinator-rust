@@ -1,6 +1,6 @@
 # pushinator-rust
 
-A Rust crate for sending notifications through the Pushinator API. This library provides both synchronous and asynchronous methods to send notifications.
+A Rust library that enables developers to send push notifications seamlessly through the Pushinator API, supporting both synchronous and asynchronous operations.
 
 ## Installation
 
