@@ -6,17 +6,17 @@ use std::error::Error;
 /// A client for interacting with the Pushinator API.
 
 pub struct PushinatorClient {
-    /// API token used for authentication.
+    /// Pushinator API token used for authentication.
     api_token: String,
     /// Base URL of the Pushinator API.
     base_url: String,
 }
 
 impl PushinatorClient {
-    /// Creates a new `PushinatorClient` instance with the default API base URL.
+    /// Creates a new `PushinatorClient` instance with the default Pushinator API base URL.
     ///
     /// # Arguments
-    /// * `api_token` - A string containing the API token for authentication.
+    /// * `api_token` - the Pushinator API token for authentication.
     ///
     /// # Returns
     /// A new instance of `PushinatorClient`.
@@ -30,8 +30,8 @@ impl PushinatorClient {
     /// Creates a new `PushinatorClient` instance with a custom base URL, typically for testing purposes.
     ///
     /// # Arguments
-    /// * `api_token` - A string containing the API token for authentication.
-    /// * `mock_url` - A string containing the mock URL for the API.
+    /// * `api_token` - the API token for authentication.
+    /// * `mock_url` - the mock URL for the API.
     ///
     /// # Returns
     /// A new instance of `PushinatorClient`.
@@ -45,7 +45,7 @@ impl PushinatorClient {
     /// Sends a notification to a specific channel synchronously.
     ///
     /// # Arguments
-    /// * `channel_id` - ID of the channel to send the notification to.
+    /// * `channel_id` - The ID of the channel to send the notification to.
     /// * `notification` - notification message.
     ///
     /// # Returns
@@ -83,10 +83,10 @@ impl PushinatorClient {
         }
     }
 
-        /// Sends a notification to a specific channel asynchronously.
+    /// Sends a notification to a specific channel asynchronously.
     ///
     /// # Arguments
-    /// * `channel_id` - ID of the channel to send the notification to.
+    /// * `channel_id` - The ID of the channel to send the notification to.
     /// * `notification` - notification message.
     ///
     /// # Returns
