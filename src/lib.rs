@@ -23,7 +23,7 @@ impl PushinatorClient {
     pub fn new(api_token: String) -> Self {
         PushinatorClient {
             api_token: api_token.to_string(),
-            base_url: "https://api.pushinator.com/".to_string(),
+            base_url: "https://api.pushinator.com".to_string(),
         }
     }
 
