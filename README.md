@@ -8,7 +8,7 @@ Add this to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-pushinator = "0.1.0"
+pushinator = "0.1.2"
 ```
 
 ## Usage
