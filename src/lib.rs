@@ -56,7 +56,7 @@ impl PushinatorClient {
         channel_id: String,
         notification: &str,
     ) -> Result<(), Box<dyn Error>> {
-        let api_url = format!("{}/api/v1/send_notification", self.base_url);
+        let api_url = format!("{}/api/v2/notifications/send", self.base_url);
 
         let client = SyncClient::new();
 
@@ -66,8 +66,8 @@ impl PushinatorClient {
             .header("Content-Type", "application/json")
             .header("User-Agent", "pushinator-rust/1.0")
             .json(&json!({
-                "channel": channel_id,
-                "notification": notification
+                "channel_id": channel_id,
+                "content": notification
             }))
             .send()?;
 
@@ -97,7 +97,7 @@ impl PushinatorClient {
         channel_id: String,
         notification: &str,
     ) -> Result<(), Box<dyn Error>> {
-        let api_url = format!("{}/api/v1/send_notification", self.base_url);
+        let api_url = format!("{}/api/v2/notifications/send", self.base_url);
 
         let client = AsyncClient::new();
 
@@ -107,8 +107,8 @@ impl PushinatorClient {
             .header("Content-Type", "application/json")
             .header("User-Agent", "pushinator-rust/1.0")
             .json(&json!({
-                "channel": channel_id,
-                "notification": notification
+                "channel_id": channel_id,
+                "content": notification
             }))
             .send()
             .await?;
