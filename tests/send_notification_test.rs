@@ -5,13 +5,13 @@ use tokio;
 
 #[test]
 fn test_send_notification_sync_success() {
-    let _mock = mock("POST", "/api/v1/send_notification")
+    let _mock = mock("POST", "/api/v2/notifications/send")
         .match_header("Authorization", Matcher::Regex("Bearer .+".to_string()))
         .match_header("Content-Type", "application/json")
         .match_header("User-Agent", "pushinator-rust/1.0")
         .match_body(Matcher::Json(json!({
-            "channel": "test-channel-id",
-            "notification": "Test notification"
+            "channel_id": "test-channel-id",
+            "content": "Test notification"
         })))
         .with_status(200)
         .create();
@@ -24,13 +24,13 @@ fn test_send_notification_sync_success() {
 
 #[test]
 fn test_send_notification_sync_failure() {
-    let _mock = mock("POST", "/api/v1/send_notification")
+    let _mock = mock("POST", "/api/v2/notifications/send")
         .match_header("Authorization", Matcher::Regex("Bearer .+".to_string()))
         .match_header("Content-Type", "application/json")
         .match_header("User-Agent", "pushinator-rust/1.0")
         .match_body(Matcher::Json(json!({
-            "channel": "test-channel-id",
-            "notification": "Test notification"
+            "channel_id": "test-channel-id",
+            "content": "Test notification"
         })))
         .with_status(500)
         .with_body("{\"error\":\"Internal Server Error\"}")
@@ -44,13 +44,13 @@ fn test_send_notification_sync_failure() {
 
 #[tokio::test]
 async fn test_send_notification_async_success() {
-    let _mock = mock("POST", "/api/v1/send_notification")
+    let _mock = mock("POST", "/api/v2/notifications/send")
         .match_header("Authorization", Matcher::Regex("Bearer .+".to_string()))
         .match_header("Content-Type", "application/json")
         .match_header("User-Agent", "pushinator-rust/1.0")
         .match_body(Matcher::Json(json!({
-            "channel": "test-channel-id",
-            "notification": "Test notification"
+            "channel_id": "test-channel-id",
+            "content": "Test notification"
         })))
         .with_status(200)
         .create();
@@ -65,13 +65,13 @@ async fn test_send_notification_async_success() {
 
 #[tokio::test]
 async fn test_send_notification_async_failure() {
-    let _mock = mock("POST", "/api/v1/send_notification")
+    let _mock = mock("POST", "/api/v2/notifications/send")
         .match_header("Authorization", Matcher::Regex("Bearer .+".to_string()))
         .match_header("Content-Type", "application/json")
         .match_header("User-Agent", "pushinator-rust/1.0")
         .match_body(Matcher::Json(json!({
-            "channel": "test-channel-id",
-            "notification": "Test notification"
+            "channel_id": "test-channel-id",
+            "content": "Test notification"
         })))
         .with_status(500)
         .with_body("{\"error\":\"Internal Server Error\"}")
